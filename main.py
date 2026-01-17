@@ -46,11 +46,12 @@ CHARACTERS = [
 ]
 
 # Fonts
-# 使用系統字體列表以支援中文顯示
-font = pygame.font.SysFont(['microsoftjhenghei', 'arialunicode', 'stheititclight', 'arial'], 36)
-title_font = pygame.font.SysFont(['microsoftjhenghei', 'arialunicode', 'arial'], 64)
-result_font = pygame.font.SysFont(['microsoftjhenghei', 'arialunicode', 'stheititclight'], 100)
-small_font = pygame.font.SysFont(['microsoftjhenghei', 'arialunicode', 'arial'], 28)
+# 使用預設字體以確保在網頁環境(WebAssembly)中能正常顯示
+# 注意：預設字體可能不支援中文，但在網頁版能確保遊戲運作
+font = pygame.font.Font(None, 36)
+title_font = pygame.font.Font(None, 64)
+result_font = pygame.font.Font(None, 100)
+small_font = pygame.font.Font(None, 28)
 
 async def show_character_selection():
     """ 顯示角色選擇畫面，包含圖片預覽 """
@@ -293,4 +294,5 @@ async def main():
     sys.exit()
 
 # Run the async main function
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())
