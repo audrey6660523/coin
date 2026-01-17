@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="一個有趣的金幣收集遊戲，選擇你的英雄並收集掉落的金幣！">
+    <title>Coin Collector - Hero Selection</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Character Selection Screen -->
+    <div id="characterSelection" class="screen active">
+        <div class="container">
+            <h1 class="title">Choose Your Hero</h1>
+            <div class="characters-container">
+                <div class="character-card" data-character="0">
+                    <div class="character-preview">
+                        <img src="assets/103643387.webp" alt="Cat" class="character-img">
+                    </div>
+                    <div class="character-name">Cat</div>
+                </div>
+                <div class="character-card" data-character="1">
+                    <div class="character-preview">
+                        <img src="assets/images.jpg" alt="Cute" class="character-img">
+                    </div>
+                    <div class="character-name">Cute</div>
+                </div>
+                <div class="character-card" data-character="2">
+                    <div class="character-preview">
+                        <img src="assets/player_blue.png" alt="Ghost" class="character-img">
+                    </div>
+                    <div class="character-name">Ghost</div>
+                </div>
+            </div>
+            <p class="hint-text">Click to select, or use Arrow Keys and press Enter</p>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="game-ui">
+            <div class="ui-element score-display">得分: <span id="scoreValue">0</span></div>
+            <div class="ui-element timer-display">時間: <span id="timerValue">45</span>s</div>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" class="screen">
+        <div class="container game-over-container">
+            <div id="resultDisplay" class="result-display">
+                <h1 id="commentText" class="comment-text"></h1>
+                <p id="finalScore" class="final-score"></p>
+                <p id="waitMessage" class="wait-message"></p>
+            </div>
+            <div id="retryDialog" class="retry-dialog hidden">
+                <h2 class="retry-title">請問是否要再玩一次？</h2>
+                <div class="button-group">
+                    <button id="retryBtn" class="btn btn-primary">繼續玩</button>
+                    <button id="quitBtn" class="btn btn-secondary">結束遊戲</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
