@@ -117,10 +117,7 @@ async def show_character_selection():
 # --- 開始遊戲流程 ---
 
 async def main():
-    global selected_char_idx, selected_char_info, player_image, player_color, coin_image
-    global player_x, player_y, player_speed, is_jumping, jump_speed, gravity
-    global vertical_velocity, ground_y, coins, score, game_over, show_retry_dialog
-    global game_over_time, start_ticks, running
+
     
     # 1. 選擇角色
     selected_char_idx = await show_character_selection()
